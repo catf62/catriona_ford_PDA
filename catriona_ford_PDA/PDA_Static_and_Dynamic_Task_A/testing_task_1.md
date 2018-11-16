@@ -12,10 +12,13 @@ require_relative('card.rb')
 # require_relative should not need the .rb, require_relative('card') would work ok
 class CardGame
 
+  # No initialize method for CardGame class
+
 
   def checkforAce(card)
 # function title should be written in snake case - def check_for_ace(card)
     if card.value = 1
+# in the line above a comparison is being made so it should have a == and read if card.value == 1
       return true
     else
       return false
@@ -30,6 +33,7 @@ class CardGame
 # return above should be card1, card.name has not been defined anywhere
   else
     card2
+# both returns should be present or not present in the if/else statement above
   end
 end
 # the end above is not indented, meaning that the def highest_card function has no end
@@ -38,9 +42,11 @@ end
 
 def self.cards_total(cards)
   total
+# total above should be set to zero - total = 0
   for card in cards
     total += card.value
     return "You have a total of" + total
+# line above would be better with string interpolation e.g. "You have a total of {#total}", at the moment it will return something like ~You have a total of10~
   end
 end
 
