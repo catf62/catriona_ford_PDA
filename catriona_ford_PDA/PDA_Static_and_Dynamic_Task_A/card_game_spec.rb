@@ -7,9 +7,9 @@ require( 'pry-byebug' )
 class CardGameTest < Minitest::Test
 
 
-  # def setup
-  #   @card1 = Card.new("Hearts", 1)
-  # end
+  def setup
+    @card1 = Card.new("Hearts", 1)
+  end
 
 
   def test_check_for_ace__ace
