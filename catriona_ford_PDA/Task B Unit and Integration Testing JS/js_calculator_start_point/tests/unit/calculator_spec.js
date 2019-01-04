@@ -58,4 +58,13 @@ describe('calculator', function () {
     const actual = calculator.runningTotal;
     assert.strictEqual(actual, 433);
   });
+
+  it('should be able to chain multiple operators together', function () {
+    calculator.previousTotal = 5;
+    calculator.add(3);
+    calculator.operatorClick('=');
+    const actual = calculator.runningTotal;
+    assert.strictEqual(actual, 8);
+  });
+
 });
