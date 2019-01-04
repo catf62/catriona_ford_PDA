@@ -9,6 +9,10 @@
     "test": "mocha tests/unit/calculator_spec.js",
     "start": "nodemon server.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/catf62/catriona_ford_PDA/catriona_ford_PDA/Task B Unit and Integration Testing JS/js_calculator_start_point/"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -16,7 +20,13 @@
     "chai-as-promised": "^6.0.0",
     "express": "^4.14.0",
     "mocha": "^5.2.0",
+    "nodemon": "^1.18.9",
     "protractor": "^5.4.0",
     "webdriver-manager": "^10.2.7"
-  }
+  },
+  "main": "conf.js",
+  "directories": {
+    "test": "tests"
+  },
+  "devDependencies": {}
 }
