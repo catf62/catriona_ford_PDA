@@ -66,4 +66,44 @@ describe('calculator functionality', function() {
     expect(running_total.getAttribute('value')).to.eventually.equal('-12')
   })
 
+  it('should handle decimals as expected', function(){
+    // running total should be zero
+    running_total = element(by.css('#running_total'))
+    element(by.css('#number1')).click();
+    // change display to 1
+    element(by.css('#operator_divide')).click();
+    element(by.css('#number2')).click();
+    // change display to 0.5
+    element(by.css('#operator_equals')).click();
+    expect(running_total.getAttribute('value')).to.eventually.equal('0.5')
+  })
+
+  it('should handle very large numbers as expected', function(){
+    // running total should be zero
+    running_total = element(by.css('#running_total'))
+    element(by.css('#number1')).click();
+    element(by.css('#number2')).click();
+    element(by.css('#number3')).click();
+    element(by.css('#number4')).click();
+    element(by.css('#number5')).click();
+    element(by.css('#number6')).click();
+    element(by.css('#number7')).click();
+    element(by.css('#number8')).click();
+    element(by.css('#number9')).click();
+    // change display to 123456789
+    element(by.css('#operator_multiply')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#number8')).click();
+    element(by.css('#number7')).click();
+    element(by.css('#number6')).click();
+    element(by.css('#number5')).click();
+    element(by.css('#number4')).click();
+    element(by.css('#number3')).click();
+    element(by.css('#number2')).click();
+    element(by.css('#number1')).click();
+    // change display to 121932631112635260
+    element(by.css('#operator_equals')).click();
+    expect(running_total.getAttribute('value')).to.eventually.equal('121932631112635260')
+  })
+
 });
