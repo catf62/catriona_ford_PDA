@@ -45,4 +45,25 @@ describe('calculator functionality', function() {
     expect(running_total.getAttribute('value')).to.eventually.equal('20')
   })
 
+  it('should handle negative numbers as expected', function(){
+    // running total should be zero
+    running_total = element(by.css('#running_total'))
+    element(by.css('#number1')).click();
+    // change display to 1
+    element(by.css('#operator_add')).click();
+    element(by.css('#number1')).click();
+    // change display to 2
+    element(by.css('#operator_subtract')).click();
+    element(by.css('#number8')).click();
+    // change display to -6
+    element(by.css('#operator_divide')).click();
+    element(by.css('#number3')).click();
+    // change display to -2
+    element(by.css('#operator_multiply')).click();
+    element(by.css('#number6')).click();
+    // change display to -12
+    element(by.css('#operator_equals')).click();
+    expect(running_total.getAttribute('value')).to.eventually.equal('-12')
+  })
+
 });
