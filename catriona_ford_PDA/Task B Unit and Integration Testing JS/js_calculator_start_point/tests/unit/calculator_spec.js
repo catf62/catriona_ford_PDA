@@ -76,4 +76,13 @@ describe('calculator', function () {
     assert.strictEqual(actual, 0);
   });
 
+  it('should display "Not a Number" when a number is divided by zero', function () {
+    calculator.previousTotal = 5;
+    calculator.operatorClick('/');
+    calculator.numberClick(0);
+    calculator.operatorClick('=');
+    const actual = calculator.runningTotal;
+    assert.strictEqual(actual, 'Not a Number');
+  });
+
 });

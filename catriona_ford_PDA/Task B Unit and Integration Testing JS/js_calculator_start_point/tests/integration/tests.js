@@ -106,4 +106,16 @@ describe('calculator functionality', function() {
     expect(running_total.getAttribute('value')).to.eventually.equal('121932631112635260')
   })
 
+  it('should display Not a Number when a number is divided by zero', function(){
+    // running total should be zero
+    running_total = element(by.css('#running_total'))
+    // change display to 5
+    element(by.css('#number5')).click();
+    element(by.css('#operator_divide')).click();
+    element(by.css('#number0')).click();
+    // change display to Not a Number
+    element(by.css('#operator_equals')).click();
+    expect(running_total.getAttribute('value')).to.eventually.equal("Not a Number")
+  })
+
 });

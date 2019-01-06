@@ -35,7 +35,6 @@ Calculator.prototype = {
     }
     // concatenate the clicked number to the running total
     this.runningTotal = parseFloat('' + this.runningTotal + number);
-
   },
 
   operatorClick: function(operator) {
@@ -58,11 +57,19 @@ Calculator.prototype = {
         break;
       }
     }
+    //else if (this.previousTotal == 0 && this.previousOperator == '/') {
+    //  this.runningTotal = parseString('Not a Number');
+    //}
 
     // if the 'equals' button was clicked, clear the previous operator, otherwise
     // record what the previous operator was
     if (operator == '=') {
-      this.previousOperator = null;
+      if (!isFinite(this.runningTotal)) {
+      this.runningTotal = 'Not a Number';
+      }
+      else {
+        this.previousOperator = null;
+      }
     } else {
       this.previousOperator = operator;
     }
